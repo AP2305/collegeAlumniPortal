@@ -71,16 +71,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>DisplayData</display-name>
-    <servlet-name>DislplayData</servlet-name>
-    <servlet-class>com.servlet.DisplayData</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DisplayData</servlet-name>
-    <url-pattern>/DisplayData</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>Gallery</display-name>
     <servlet-name>Gallery</servlet-name>
     <servlet-class>com.servlet.Gallery</servlet-class>
@@ -279,4 +269,5 @@
     <servlet-name>approvePlacementServlet</servlet-name>
     <url-pattern>/approvePlacementServlet</url-pattern>
   </servlet-mapping>
+  
 </web-app>
