@@ -5,22 +5,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.service.userService;
 import com.service.impl.userServiceImpl;
-import com.shared.UserBean;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class DisplayUserData
  */
-public class Login extends HttpServlet {
+public class DisplayUserData extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public DisplayUserData() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,7 +28,8 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		userService us=new userServiceImpl();
+		request.setAttribute("users", us.getUserList());
 	}
 
 	/**
@@ -38,19 +37,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
-		HttpSession session = request.getSession();
-		userService login = new userServiceImpl();
-
-		UserBean us = login.Login(email, password);
-		String usertype = us.getUsertype();
-		if (usertype != null) {
-			session.setAttribute("userBean", us);
-			response.sendRedirect("index.jsp");
-		} else {
-			response.sendRedirect("login.jsp");
-		}
+		doGet(request, response);
 	}
 
 }

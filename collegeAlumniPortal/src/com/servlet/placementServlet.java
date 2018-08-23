@@ -49,7 +49,7 @@ public class placementServlet extends HttpServlet {
 		placementbean.setStartdate(request.getParameter("startdate"));
 		placementbean.setEnddate(request.getParameter("enddate"));
 		placementbean.setVenue(request.getParameter("venue"));
-		placementbean.setStatus("-1");
+		placementbean.setStatus("1");
 		placementbean.setUserid(((UserBean)session.getAttribute("userBean")).getId());
 		
 		userService userservice = new userServiceImpl();

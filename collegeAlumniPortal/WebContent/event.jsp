@@ -8,8 +8,9 @@
 <title>College Alumni Portal</title>
 <%@include file="css.html"%>
 <jsp:include page="/DisplayEvent"></jsp:include>
+<%@page import="com.shared.UserBean"%>
 </head>
-<body>
+<body onload="valid()">
 	<jsp:include page="nav.jsp" />
 	<br>
 	<br>
@@ -30,6 +31,10 @@
 						<th>Posted Date</th>
 						<th>Update</th>
 						<th>Delete</th>
+						<c:if  test="${utype}== ADMIN" >
+							<th id="aproveh" >Approve</th>
+							<th id="disapph" >Disapprove</th>
+						</c:if>
 					</tr>
 					<c:forEach items="${eventList}" var="bean">
 						<c:url var="delete" value="DeleteEvent">
@@ -37,6 +42,10 @@
 						</c:url>
 						<c:url var="update" value="UpdateEvent">
 							<c:param name="upid" value="${bean.id }"></c:param>
+						</c:url>
+						<c:url var="approve" value="approveEventServlet">
+							<c:param name="apid" value="${bean.id }"></c:param>
+							<c:param name="status" value="1"></c:param>
 						</c:url>
 						 <tr>
 							<td><c:out value="${bean.ename }"></c:out></td>
@@ -46,8 +55,12 @@
 							<td><c:out value="${bean.time}"></c:out></td>
 							<td><c:out value="${bean.desc}"></c:out></td>
 							<td><c:out value="${bean.posteddate}"></c:out></td>
-							<td><a href="${update}">Update</a></td>
-							<td><a href="${delete}">Delete</a></td>
+							<td><a id ="up" href="${update}">Update</a></td>
+							<td><a id="del" href="${delete}">Delete</a></td>
+							<c:if  test="${utype}== ADMIN" >
+							<td id="aprove" > <a href="${approve}">Approve</a></td>
+							<td id="disapp" > <a href="${delete}">Disapprove</a></td>
+							</c:if>
 						</tr>
 					</c:forEach>
 				</table>
@@ -55,5 +68,6 @@
 			</div>
 		</div>
 	<%@include file="js.html"%>
+	
 </body>
 </html>

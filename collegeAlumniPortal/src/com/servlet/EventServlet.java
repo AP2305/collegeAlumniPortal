@@ -50,7 +50,7 @@ public class EventServlet extends HttpServlet {
 		eventbean.setVenue(request.getParameter("venue"));
 		eventbean.setTime(request.getParameter("time"));
 		eventbean.setDesc(request.getParameter("description"));
-		eventbean.setStatus("-1");
+		eventbean.setStatus("1");
 		eventbean.setUserid(((UserBean)session.getAttribute("userBean")).getId());
 		
 		userService userservice = new userServiceImpl();

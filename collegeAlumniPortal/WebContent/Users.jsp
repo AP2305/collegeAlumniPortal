@@ -7,7 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <%@include file="css.html"%>
-	<jsp:include page="/DisplayData"></jsp:include>
+	<jsp:include page="/DisplayUserData"></jsp:include>
+	<%@page import="com.shared.UserBean"%>
 </head>
 <body>
 	<jsp:include page="nav.jsp" />
@@ -35,8 +36,10 @@
 						<th>Enrollment Id</th>
 						<th>State</th>
 						<th>City</th>
+						<c:if  test="${utype}== ADMIN" >
 						<th>Active</th>
 						<th>Inactive</th>
+						</c:if>
 					</tr>
 					<c:forEach items="${users}" var="bean">
 						<c:url var="active" value="ChangeUserStatus">
@@ -60,12 +63,16 @@
 							<td><c:out value="${bean.enrollno}"></c:out></td>
 							<td><c:out value="${bean.state}"></c:out></td>
 							<td><c:out value="${bean.city}"></c:out></td>
+							<c:if  test="${utype}== ADMIN" >
 							<td><a href="${active}">Active</a></td>
 							<td><a href="${inactive}">Inactive</a></td>
+							</c:if>
 						</tr>
 					</c:forEach>
 				</table>
+				<c:if  test="${utype}== ADMIN" >
 				<a href="AdminAddFaculty.jsp" class="btn btn-primary btn-block"> Add a Faculty</a>
+				</c:if>
 				</form>
 				</div>
 				</div>

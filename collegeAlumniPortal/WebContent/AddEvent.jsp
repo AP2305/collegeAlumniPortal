@@ -18,7 +18,7 @@
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><b>Event</b></li>
 			</ol>
-			<form action="<%=request.getContextPath()%>/adminEventServlet" method="post">
+			<form action="<%=request.getContextPath()%>/EventServlet" method="post">
 				<table  class="breadcrumb" cellpadding="5" cellspacing="5" class="table table-bordered">
 					<tr>
 						<td>Event Name:</td>

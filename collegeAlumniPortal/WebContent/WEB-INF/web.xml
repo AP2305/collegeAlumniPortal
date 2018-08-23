@@ -269,5 +269,14 @@
     <servlet-name>approvePlacementServlet</servlet-name>
     <url-pattern>/approvePlacementServlet</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <description></description>
+    <display-name>DisplayUserData</display-name>
+    <servlet-name>DisplayUserData</servlet-name>
+    <servlet-class>com.servlet.DisplayUserData</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayUserData</servlet-name>
+    <url-pattern>/DisplayUserData</url-pattern>
+  </servlet-mapping>
 </web-app>
