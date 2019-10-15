@@ -15,7 +15,7 @@ It also contains placement management, photo gallery & event management.
       - Downlod it from **[here](https://tomcat.apache.org/download-70.cgi)**
       
 ### Installing
-- Once you complete installing jdk and eclipse open eclipse and add apache tomcat server.
+- Once you complete installing jdk and eclipse, open eclipse and add apache tomcat server.
 - To add server first extract the contents off zip.
 - After completing extraction go **[here](https://help.eclipse.org/neon/index.jsp?topic=%2Forg.eclipse.stardust.docs.wst%2Fhtml%2Fwst-integration%2Fconfiguration.html)** to see how to add server.
 
